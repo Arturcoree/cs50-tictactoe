@@ -129,3 +129,19 @@ def min_value(board):
             break
     
     return v, best_action
+def main():
+    # Aquí va el código principal para iniciar el juego
+    print("Iniciando el juego Tic-Tac-Toe")
+    board = initial_state()
+    while not terminal(board):
+        print("Turno del jugador:", player(board))
+        print("Acciones posibles:", actions(board))
+        action = minimax(board)
+        board = result(board, action)
+        for row in board:
+            print(row)
+        print()
+    print("Juego terminado. Ganador:", winner(board))
+
+if __name__ == "__main__":
+    main()
